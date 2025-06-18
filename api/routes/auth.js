@@ -158,9 +158,6 @@ router.post("/logout", protectedRoute, (req, res) => {
     // Clear the cookie
     res.cookie("access_token", "", {
       maxAge: 1,
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
     });
 
     res.status(200).json({ message: "User logged out successfully 😍" });
