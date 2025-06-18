@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = "https://anyware-software-api.vercel.app/api/";
-const BASE_URL = "http://localhost:8080/api/";
+const BASE_URL = "https://anyware-software-api.vercel.app/api/";
+// const BASE_URL = "http://localhost:8080/api/";
 
 export const makeRequest = axios.create({
   baseURL: BASE_URL,
