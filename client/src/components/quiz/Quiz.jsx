@@ -14,7 +14,7 @@ import {
 import toast from "react-hot-toast";
 
 // Import QuizModal component
-import QuizModal from "../QuizModal/QuizModal"; // Adjust path as needed
+import QuizModal from "../quizModal/QuizModal";
 
 // RTKQ
 import { useGetCurrentUserQuery } from "../../store/auth/authSlice";
