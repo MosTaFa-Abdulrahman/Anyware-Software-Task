@@ -95,7 +95,7 @@ router.get("/me", protectedRoute, async (req, res) => {
 });
 
 // Logout
-router.post("/logout", (req, res) => {
+router.post("/logout", protectedRoute, (req, res) => {
   try {
     res.cookie("access_token", "", { maxAge: 1 });
     res.status(200).json({ message: "User logged out successfully 😍" });
