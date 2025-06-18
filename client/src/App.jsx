@@ -16,7 +16,7 @@ import Register from "./pages/auth/register/Register";
 import Login from "./pages/auth/login/Login";
 import Home from "./pages/home/Home";
 import Announcement from "./pages/create/announcement/Announcement";
-import Quiz from "./pages/create/quiz/quiz";
+import Quiz from "./pages/create/quiz/Quiz";
 
 // RTKQ
 import { useGetCurrentUserQuery } from "./store/auth/authSlice";
