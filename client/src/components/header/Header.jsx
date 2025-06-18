@@ -41,7 +41,7 @@ function Header() {
   const handleLogout = async () => {
     try {
       await logoutUser().unwrap();
-      window.location.reload();
+      // window.location.reload();
       localStorage.removeItem("token");
       setShowDropdown(false);
       toast.success("User logged out successfully");
