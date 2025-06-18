@@ -1,0 +1,352 @@
+@import "../../styles/responsive.scss";
+
+.header {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100%;
+    max-width: 100%;
+  }
+
+  &__logo {
+    background-color: #2c5f7c;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    min-width: 80px;
+
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    @include respond-to(md) {
+      margin-left: 50px;
+    }
+
+    @include respond-to(sm) {
+      min-width: 60px;
+      margin-left: 45px;
+
+      h1 {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__welcome {
+    flex-grow: 1;
+    margin-left: 20px;
+    color: #6b7280;
+    font-size: 16px;
+    font-weight: 500;
+
+    @include respond-to(md) {
+      display: none;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @include respond-to(sm) {
+      gap: 8px;
+    }
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include respond-to(md) {
+      display: none;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 12px;
+      color: #9ca3af;
+      z-index: 1;
+    }
+
+    &-input {
+      padding: 8px 8px 8px 36px;
+      border: 1px solid #d1d5db;
+      border-radius: 20px;
+      background-color: #f9fafb;
+      width: 200px;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.2s ease;
+
+      &:focus {
+        border-color: #2c5f7c;
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(44, 95, 124, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+
+      @include respond-to(lg) {
+        width: 160px;
+      }
+    }
+  }
+
+  &__notifications {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    @include respond-to(sm) {
+      gap: 8px;
+    }
+  }
+
+  &__notification-item {
+    position: relative;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #f3f4f6;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #6b7280;
+
+    &:hover {
+      background-color: #e5e7eb;
+    }
+
+    &:first-child {
+      background-color: #10b981;
+      color: white;
+
+      &:hover {
+        background-color: #059669;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: #3b82f6;
+      color: white;
+
+      &:hover {
+        background-color: #2563eb;
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  &__profile {
+    position: relative;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f3f4f6;
+    }
+
+    @include respond-to(md) {
+      gap: 8px;
+      padding: 6px 8px;
+    }
+
+    @include respond-to(sm) {
+      gap: 6px;
+      padding: 4px 6px;
+    }
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include respond-to(sm) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+
+    @include respond-to(md) {
+      display: none;
+    }
+  }
+
+  &__user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+
+  &__user-email {
+    font-size: 12px;
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+
+  &__dropdown-icon {
+    color: #6b7280;
+    transition: transform 0.2s ease;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+
+    @include respond-to(md) {
+      display: none;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    overflow: hidden;
+
+    @include respond-to(md) {
+      right: -20px;
+      min-width: 180px;
+    }
+  }
+
+  &__dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #374151;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 14px;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+
+    &--danger {
+      color: #dc2626;
+
+      &:hover {
+        background-color: #fef2f2;
+      }
+    }
+  }
+
+  &__dropdown-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 4px 0;
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+  }
+
+  &__login-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: #2c5f7c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #1e4b66;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    @include respond-to(sm) {
+      padding: 6px 12px;
+      font-size: 13px;
+
+      span {
+        display: none;
+      }
+    }
+  }
+}

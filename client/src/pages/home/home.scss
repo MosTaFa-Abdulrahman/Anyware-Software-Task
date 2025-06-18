@@ -1,0 +1,190 @@
+@import "../../styles/responsive.scss";
+
+.home-page {
+  min-height: 100vh;
+  background: #f8fafc;
+
+  .home-content {
+    position: relative;
+
+    // Create a smooth transition between sections
+    .announcement-section {
+      position: relative;
+      z-index: 2;
+
+      // Add a subtle gradient overlay to blend with quiz section
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3rem;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(102, 126, 234, 0.1)
+        );
+        pointer-events: none;
+
+        @include sm {
+          height: 2rem;
+        }
+      }
+    }
+
+    .quiz-section {
+      position: relative;
+      z-index: 1;
+      margin-top: -1rem; // Overlap slightly for seamless transition
+
+      @include sm {
+        margin-top: -0.5rem;
+      }
+    }
+  }
+}
+
+// Global styles for consistent theming across sections
+.section-header {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.quiz-card,
+.announcement-card {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+
+  &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  &:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  &:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+}
+
+// Keyframe animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive grid layout for side-by-side sections on larger screens
+@include respond-from(xl) {
+  .home-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    .announcement-section,
+    .quiz-section {
+      margin-top: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .announcement-section {
+      background: #f8fafc;
+
+      .container {
+        max-width: none;
+        padding: 0;
+      }
+    }
+
+    .quiz-section {
+      border-radius: 2rem;
+      overflow: hidden;
+
+      .container {
+        max-width: none;
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+// Enhanced mobile experience
+@include sm {
+  .home-page {
+    .home-content {
+      .announcement-section,
+      .quiz-section {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+// Smooth scrolling behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Enhanced focus states for accessibility
+.view-all-btn,
+.action-btn,
+.pagination-btn {
+  &:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}
+
+// Loading states (if needed for future API integration)
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// Print styles
+@media print {
+  .home-page {
+    .quiz-section,
+    .announcement-section {
+      background: white !important;
+      box-shadow: none !important;
+
+      .quiz-card,
+      .announcement-card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+        break-inside: avoid;
+      }
+
+      .pagination {
+        display: none !important;
+      }
+    }
+  }
+}

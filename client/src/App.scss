@@ -1,0 +1,62 @@
+@import "./styles/responsive.scss";
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+
+  .main-content {
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    min-height: calc(100vh - 60px);
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+
+    @include respond-to(md) {
+      margin-left: 0;
+      width: 100%;
+      padding: 15px;
+    }
+
+    @include respond-to(sm) {
+      padding: 10px;
+      margin-top: 50px;
+    }
+  }
+}
+
+.page-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 20px;
+
+  @include respond-to(sm) {
+    padding: 16px;
+    border-radius: 6px;
+  }
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+
+  @include respond-to(sm) {
+    font-size: 20px;
+  }
+}
+
+.page-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 24px;
+
+  @include respond-to(sm) {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+}

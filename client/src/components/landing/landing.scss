@@ -1,0 +1,154 @@
+@import "../../styles/responsive.scss";
+
+.exams-time-container {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  @include lg {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  @include sm {
+    padding: 1rem;
+  }
+}
+
+.exams-content {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @include lg {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  @include sm {
+    gap: 1.5rem;
+  }
+}
+
+.text-section {
+  .title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+
+    @include md {
+      font-size: 2.5rem;
+    }
+
+    @include sm {
+      font-size: 2rem;
+    }
+  }
+
+  .description {
+    font-size: 1.125rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+
+    @include lg {
+      max-width: none;
+      margin: 0 auto 1.5rem;
+    }
+
+    @include sm {
+      font-size: 1rem;
+    }
+  }
+
+  .quote {
+    font-size: 1rem;
+    color: #94a3b8;
+    font-style: italic;
+    margin-bottom: 2rem;
+    max-width: 450px;
+
+    @include lg {
+      max-width: none;
+      margin: 0 auto 2rem;
+    }
+
+    @include sm {
+      font-size: 0.9rem;
+    }
+  }
+
+  .cta-button {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4);
+    }
+
+    @include sm {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include lg {
+    order: -1;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    @include md {
+      max-width: 400px;
+    }
+
+    @include sm {
+      max-width: 300px;
+      border-radius: 12px;
+    }
+  }
+}
